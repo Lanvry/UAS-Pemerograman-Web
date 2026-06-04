@@ -78,9 +78,9 @@ const Dashboard = () => {
   };
 
   const filteredPoktans = poktans.filter(p => 
-    p.nama_poktan.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    p.ketua_poktan.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.nomer_register.toLowerCase().includes(searchQuery.toLowerCase())
+    (p.nama_poktan || '').toLowerCase().includes(searchQuery.toLowerCase()) || 
+    (p.ketua_poktan || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (p.nomer_register || '').toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const totalPages = Math.ceil(filteredPoktans.length / itemsPerPage);
